@@ -6,7 +6,23 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Hogwarts Online Store</title>
         <style>
-            h1,
+            @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Merienda:wght@400;700&display=swap');
+
+@mixin font-main($size: 1.5rem, $weight: 400, $color: white, $height: 117%) {
+    font-family: 'Crimson Pro', sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    font-style: normal;
+    color: $color;
+  }
+
+body {
+    @include font-main(1.25rem, 400, white, 165%);
+}
+
+body,
+h1,
 h2{
     margin: 0;
     padding: 0;
@@ -15,35 +31,119 @@ h2{
 a {
     text-decoration: none;
     font: inherit;
-    cursor: pointer;
+    @include font-main(1.25rem, 400, white, 165%);
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button {
+    font: inherit;
+    border: none;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .title,
 .title-description {
+    padding: 0 0 30px;
+    font-family: 'Merienda';
     color: white;
 }
 
+.title {
+    font-size: 3rem;
+
+    @media screen and (max-width: 600px) {
+        font-size: 2.5rem;
+    }
+}
+
+.title-description {
+
+    @media screen and (max-width: 600px) {
+        font-size: 1.3rem;
+    }
+}
+
 .container {
+    height: 100vh;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 100vh;
+    align-items: center;
+    background-color: #0b0b0c;
     background-image: url('https://images.ctfassets.net/usf1vwtuqyxm/7C2Ku6pVp27OTws6rx3e5m/f4355cb30c7bcef177752cd2f2c46074/magic-caster-purple-stars-homepage-hero.jpg?w=2016&fm=webp');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+}
+
+.description-container {
+    padding-bottom: 30px;
+
+    @media screen and (max-width: 600px) {
+        font-size: 1.15rem;
+    }
+}
+
+.ligth {
+    color: #ba8532;
+}
+
+.btn-container {
+    padding-bottom: 30px;
+}
+
+.btn {
+    width: 300px;
+    padding: 7px;
+    border: none;
+    border-radius: 10px;
+    font: inherit;
+    background-color: #ffffff22;
+    box-shadow: 0px 0px 5px 1px #58277e;
+
+    &:hover {
+        background-color: rgb(255 255 255 / 33%);
+        transition: all 1s;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 250px;
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+}
+
+.link {
+    @include font-main(1.5rem, 600, black, 165%);
+    color: #ffffff;
+    text-shadow: 0px 0px 3px #ffbd41;
+
+    @media screen and (max-width: 600px) {
+        font-size: 1.2rem;
+    }
 }
 
 
         </style>
     </head>
     <body>
-        <div class="container">
+         <div class="container">
             <div class="title-container">
                 <h1 class="title">Page 404</h1>
                 <h2 class="title-description">Oops... The miracle didn't happen...</h2>
             </div>
+            <div class="description-container">
+                <h2>
+                    Oh dear. Are you lost? <span class="ligth">Lumos Maxima!</span>
+                </h2>
+            </div>
             <div class="btn-container">
-                <button class="btn"><a href="#">Back to Hogwarts Store</a></button>
+                <button class="btn"><a class="link" href="#">Back to Hogwarts Store</a></button>
             </div>
         </div>
     </body>
